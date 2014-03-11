@@ -79,5 +79,8 @@
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
+;; lice - auto license heades
+(setq lice:default-license "apache-2.0")
+
 (provide 'init-sme)
 ;;; inti-sme.el ends here

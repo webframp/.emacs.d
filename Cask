@@ -20,6 +20,7 @@
 (depends-on "go-mode")
 (depends-on "haskell-mode")
 (depends-on "ido-vertical-mode")
+(depends-on "lice")
 (depends-on "markdown-mode")
 (depends-on "notmuch")
 (depends-on "org")
