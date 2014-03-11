@@ -3,6 +3,7 @@
 (source org)
 (source SC)
 
+(depends-on "ag")
 (depends-on "base16-theme")
 (depends-on "chruby")
 (depends-on "company")
