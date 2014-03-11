@@ -81,6 +81,7 @@
 
 ;; lice - auto license heades
 (setq lice:default-license "apache-2.0")
+(add-to-list 'safe-local-variable-values '(lice:default-license . "apache-2.0"))
 
 ;; powerline config
 (powerline-default-theme)
