@@ -21,6 +21,10 @@
 (require 'init-bindings)
 (require 'init-company)
 (require 'init-ruby)
+(require 'org-config)
+(require 'notmuch-config)
+(require 'user-functions)
+(require 'chef-mode)
 
 (when *is-a-mac*
   (require 'init-osx))
