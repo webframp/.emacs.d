@@ -39,8 +39,16 @@
 
 ;; flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
+(setq flycheck-completion-system 'ido)
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+
+;; ido settings: vertical, fuzzy and show matching
+(ido-mode t)
+(ido-everywhere t)
+(ido-vertical-mode t)
+(flx-ido-mode t)
+(setq ido-use-faces nil)
 
 (message "init completed in %.2fms"
          (sme/time-subtract-millis (current-time) before-init-time))

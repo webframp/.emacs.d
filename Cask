@@ -11,6 +11,7 @@
 (depends-on "d-mode")
 (depends-on "dash-at-point")
 (depends-on "deft")
+(depends-on "flx-ido")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "ghc")
