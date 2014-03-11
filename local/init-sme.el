@@ -86,4 +86,4 @@
 (powerline-default-theme)
 
 (provide 'init-sme)
-;;; inti-sme.el ends here
+;;; init-sme.el ends here
