@@ -26,6 +26,7 @@
 (depends-on "org")
 (depends-on "ox-reveal")
 (depends-on "pallet")
+(depends-on "powerline")
 (depends-on "robe")
 (depends-on "ruby-end")
 (depends-on "ruby-tools")

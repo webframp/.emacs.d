@@ -82,5 +82,8 @@
 ;; lice - auto license heades
 (setq lice:default-license "apache-2.0")
 
+;; powerline config
+(powerline-default-theme)
+
 (provide 'init-sme)
 ;;; inti-sme.el ends here
