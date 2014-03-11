@@ -80,4 +80,4 @@
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (provide 'init-sme)
-;;; sme.el ends here
+;;; inti-sme.el ends here
