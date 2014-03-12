@@ -28,6 +28,7 @@
 (depends-on "pallet")
 (depends-on "powerline")
 (depends-on "robe")
+(depends-on "rubocop")
 (depends-on "ruby-end")
 (depends-on "ruby-tools")
 (depends-on "scpaste")
