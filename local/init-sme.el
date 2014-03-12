@@ -86,5 +86,17 @@
 ;; powerline config
 (powerline-default-theme)
 
+;; git-gutter
+(global-git-gutter-mode t)
+(set-face-foreground 'git-gutter:added "blue")
+(set-face-foreground 'git-gutter:deleted "yellow")
+(setq git-gutter:lighter " GG")
+(setq git-gutter:window-width 2)
+(setq git-gutter:modified-sign "⚡")
+(setq git-gutter:added-sign "+")
+(setq git-gutter:deleted-sign "-")
+(global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
+
 (provide 'init-sme)
 ;;; init-sme.el ends here

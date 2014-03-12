@@ -16,6 +16,7 @@
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "ghc")
+(depends-on "git-gutter")
 (depends-on "gnus-alias")
 (depends-on "go-mode")
 (depends-on "haskell-mode")
