@@ -27,6 +27,7 @@
 (depends-on "ox-reveal")
 (depends-on "pallet")
 (depends-on "powerline")
+(depends-on "projectile")
 (depends-on "robe")
 (depends-on "rubocop")
 (depends-on "ruby-end")
