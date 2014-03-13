@@ -24,7 +24,6 @@
       deft-text-mode 'org-mode
       deft-use-filename-as-title t)
 
-(require 'org-odt)
 (require 'ox-reveal)
 
 ;;; org-babel
