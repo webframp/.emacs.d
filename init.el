@@ -16,6 +16,7 @@
 (require 'init-benchmarking)
 
 ;; my customizations
+(require 'user-functions)
 (require 'init-themes)
 (require 'init-sme)
 (require 'init-bindings)
@@ -23,7 +24,7 @@
 (require 'init-ruby)
 (require 'org-config)
 (require 'notmuch-config)
-(require 'user-functions)
+
 (require 'chef-mode)
 
 (when *is-a-mac*
