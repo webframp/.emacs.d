@@ -18,24 +18,6 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 (when (equal system-type 'darwin) (set-exec-path-from-shell-PATH))
 
-;; don't clutter fs with backups and set some options
-(defvar user-temporary-file-directory
-  (concat temporary-file-directory user-login-name "/"))
-(make-directory user-temporary-file-directory t)
-(setq backup-by-copying t)
-(setq backup-directory-alist
-      `(("." . ,user-temporary-file-directory)
-        (,tramp-file-name-regexp nil)))
-
-(setq auto-save-list-file-prefix
-      (concat user-temporary-file-directory ".yauto-saves-"))
-(setq auto-save-file-name-transforms
-      `((".*" ,user-temporary-file-directory t)))
-
-(add-hook 'dired-mode-hook
-          '(lambda ()
-             (define-key dired-mode-map "o" 'open-with)))
-
 ;; some file associations
 (setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
 
@@ -94,6 +76,24 @@
 (set-face-foreground 'git-gutter:added "blue")
 (set-face-foreground 'git-gutter:deleted "yellow")
 (setq git-gutter:lighter " GG")
+
+;; don't clutter fs with backups and set some options
+(defvar user-temporary-file-directory
+  (concat temporary-file-directory user-login-name "/"))
+(make-directory user-temporary-file-directory t)
+(setq backup-by-copying t)
+(setq backup-directory-alist
+      `(("." . ,user-temporary-file-directory)
+        (,tramp-file-name-regexp nil)))
+
+(setq auto-save-list-file-prefix
+      (concat user-temporary-file-directory ".yauto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,user-temporary-file-directory t)))
+
+(add-hook 'dired-mode-hook
+          '(lambda ()
+             (define-key dired-mode-map "o" 'open-with)))
 
 (provide 'init-sme)
 ;;; init-sme.el ends here
