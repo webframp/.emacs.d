@@ -10,7 +10,7 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 (setq org-src-fontify-natively t)
 (setq org-log-done t)
-(setq org-export-backends '(md odt ascii html icalendar latex))
+(setq org-export-backends '(md ascii html icalendar latex))
 
 (setq org-agenda-files (list "~/org/todo.org"
                              "~/org/inbox.org"
