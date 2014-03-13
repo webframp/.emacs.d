@@ -1,3 +1,4 @@
+; -*- coding: utf-8;  no-byte-compile: t -*-
 ;;; init.el --- Sean Escriva - emacs init customizations
 ;;; Commentary:
 ;;   Config using Cask and Pallet for package management
@@ -32,10 +33,6 @@
 
 (message "init completed in %.2fms"
          (sme/time-subtract-millis (current-time) before-init-time))
-
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
 
 (provide 'init)
 ;;; init.el ends here
