@@ -7,6 +7,7 @@
 (add-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 (add-to-list 'auto-mode-alist '("Gemfile.*" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Cheffile.*" . ruby-mode))
