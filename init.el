@@ -22,8 +22,8 @@
 (require 'init-bindings)
 (require 'init-company)
 (require 'init-ruby)
-(require 'org-config)
-(require 'notmuch-config)
+(require 'init-org)
+(require 'init-notmuch)
 
 (require 'chef-mode)
 

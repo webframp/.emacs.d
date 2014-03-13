@@ -1,4 +1,4 @@
-;;; org-config.el --- org mode settings
+;;; init-org.el --- org mode settings
 ;;; Commentary:
 ;;  Various local settings for org-mode
 
@@ -120,5 +120,5 @@ Added: %U")
         ("cf" "French Press" entry (file+headline (concat org-directory "coffee.org") "French Press"))
         ))
 
-(provide 'org-config)
-;;; org-config.el ends here
+(provide 'init-org)
+;;; init-org.el ends here

@@ -1,4 +1,4 @@
-;;;; notmuch-config.el --- Custom settings for notmuch and mail handling
+;;;; init-notmuch.el --- Custom settings for notmuch and mail handling
 ;;; Commentary:
 
 ;; this configures both notmuch and message-mode
@@ -94,5 +94,5 @@
 
 (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
 
-(provide 'notmuch-config)
-;;; notmuch-config.el ends here
+(provide 'init-notmuch)
+;;; init-notmuch.el ends here
