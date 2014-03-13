@@ -34,5 +34,8 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
+(require 'chruby)
+(chruby "ruby-2.1.1")
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
