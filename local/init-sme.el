@@ -37,6 +37,7 @@
 ;; flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq flycheck-completion-system 'ido)
+(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)) ;hate this thing
 (after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
