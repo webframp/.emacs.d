@@ -75,16 +75,6 @@ file of a buffer in an external program."
   `(eval-after-load ,feature
      '(progn ,@body)))
 
-;; try and set correct bin path
-(defun set-exec-path-from-shell-PATH ()
-  "Make sure our exe path is set correctly."
-  (let ((path-from-shell
-         (replace-regexp-in-string "[[:space:]\n]*$" ""
-                                   (shell-command-to-string "$SHELL -l -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-(when (equal system-type 'darwin) (set-exec-path-from-shell-PATH))
-
 ;; split out cause it's huge
 (require 'mailto-compose-mail)
 
