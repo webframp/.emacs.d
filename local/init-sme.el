@@ -86,6 +86,9 @@
 ;; powerline config
 (powerline-default-theme)
 
+;; projectile
+(projectile-global-mode)
+
 ;; git-gutter
 (global-git-gutter-mode t)
 (set-face-foreground 'git-gutter:added "blue")
