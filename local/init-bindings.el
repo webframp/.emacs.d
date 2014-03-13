@@ -40,5 +40,8 @@
 (global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
 (global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
 
+;; magit
+(global-set-key (kbd "C-c l") 'magit-log)
+
 (provide 'init-bindings)
 ;;; init-bindings.el ends here
