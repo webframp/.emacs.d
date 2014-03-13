@@ -67,6 +67,24 @@ file of a buffer in an external program."
     (shell-command-on-region b e
                              "python -mjson.tool" (current-buffer) t)))
 
+;; Cleaner eval-after-load
+;; Thanks to:  https://github.com/purcell/emacs.d/blob/master/lisp/init-utils.el#L1
+(defmacro after-load (feature &rest body)
+  "After FEATURE is loaded, evaluate BODY."
+  (declare (indent defun))
+  `(eval-after-load ,feature
+     '(progn ,@body)))
+
+;; try and set correct bin path
+(defun set-exec-path-from-shell-PATH ()
+  "Make sure our exe path is set correctly."
+  (let ((path-from-shell
+         (replace-regexp-in-string "[[:space:]\n]*$" ""
+                                   (shell-command-to-string "$SHELL -l -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+(when (equal system-type 'darwin) (set-exec-path-from-shell-PATH))
+
 ;; split out cause it's huge
 (require 'mailto-compose-mail)
 

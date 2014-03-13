@@ -2,22 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Thanks https://github.com/purcell/emacs.d/blob/master/lisp/init-utils.el#L1
-(defmacro after-load (feature &rest body)
-  "After FEATURE is loaded, evaluate BODY."
-  (declare (indent defun))
-  `(eval-after-load ,feature
-     '(progn ,@body)))
-
-(defun set-exec-path-from-shell-PATH ()
-  "Make sure our exe path is set correctly."
-  (let ((path-from-shell
-         (replace-regexp-in-string "[[:space:]\n]*$" ""
-                                   (shell-command-to-string "$SHELL -l -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-(when (equal system-type 'darwin) (set-exec-path-from-shell-PATH))
-
 ;; some file associations
 (setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
 
@@ -25,7 +9,7 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; spelling settings
-(eval-after-load "ispell"
+(after-load 'ispell
   (progn
     (setq ispell-dictionary "en"
           ispell-silently-savep t)))
@@ -53,7 +37,7 @@
 ;; flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
 (setq flycheck-completion-system 'ido)
-(eval-after-load 'flycheck
+(after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
 ;; easy-pg
