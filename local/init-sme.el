@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; use sRGB colorspace
+(when *is-a-mac*
+  (setq ns-use-srgb-colorspace t))
+
 ;; some file associations
 (setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
 
