@@ -30,10 +30,6 @@
 ;; rebind mail, since I don't use eshell
 (global-set-key (kbd "C-x m") 'compose-mail)
 
-;; sunrise
-(global-set-key (kbd "C-c x") 'sunrise)
-(global-set-key (kbd "C-c X") 'sunrise-cd)
-
 ;; rebind ruby-tools functions
 (global-set-key (kbd "C-c '") 'ruby-tools-to-single-quote-string)
 (global-set-key (kbd "C-c \"") 'ruby-tools-to-double-quote-string)
