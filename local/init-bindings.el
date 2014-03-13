@@ -40,5 +40,9 @@
 (global-set-key (kbd "C-c :") 'ruby-tools-to-symbol)
 (global-set-key (kbd "C-c ;") 'ruby-tools-clear-string)
 
+;; gitgutter
+(global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
+
 (provide 'init-bindings)
 ;;; init-bindings.el ends here
