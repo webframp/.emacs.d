@@ -85,6 +85,16 @@
 (set-face-foreground 'git-gutter:deleted "yellow")
 (setq git-gutter:lighter " GG")
 
+;; js2-mode
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; json-mode
+(add-to-list 'auto-mode-alist '("\\.json\\" . json-mode))
+
+;; markdown-mode
+(add-to-list 'auto-mode-alist '("\\.markdown\\" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\" . gfm-mode))
+
 ;; don't clutter fs with backups and set some options
 (defvar user-temporary-file-directory
   (concat temporary-file-directory user-login-name "/"))

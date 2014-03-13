@@ -21,6 +21,8 @@
 (depends-on "go-mode")
 (depends-on "haskell-mode")
 (depends-on "ido-vertical-mode")
+(depends-on "js2-mode")
+(depends-on "json-mode")
 (depends-on "lice")
 (depends-on "markdown-mode")
 (depends-on "notmuch")
