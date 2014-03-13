@@ -37,6 +37,25 @@
 
 (defalias 'qrr 'query-replace-regexp)
 
+;; remove a few uneeded decorations
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+
+;; ido settings: vertical, fuzzy and show matching
+(ido-mode t)
+(ido-everywhere t)
+(ido-vertical-mode t)
+(flx-ido-mode t)
+(setq ido-use-faces nil)
+
+;; flycheck
+(add-hook 'after-init-hook 'global-flycheck-mode)
+(setq flycheck-completion-system 'ido)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+
 ;; easy-pg
 (if (eq system-type 'gnu/linux)
     (setq epg-gpg-program "/usr/bin/gpg")

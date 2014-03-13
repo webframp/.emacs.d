@@ -29,28 +29,6 @@
 (when *is-a-mac*
   (require 'init-osx))
 
-;; remove a few uneeded decorations
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
-
-;; company mode for auto complete
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; flycheck
-(add-hook 'after-init-hook 'global-flycheck-mode)
-(setq flycheck-completion-system 'ido)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
-
-;; ido settings: vertical, fuzzy and show matching
-(ido-mode t)
-(ido-everywhere t)
-(ido-vertical-mode t)
-(flx-ido-mode t)
-(setq ido-use-faces nil)
-
 (message "init completed in %.2fms"
          (sme/time-subtract-millis (current-time) before-init-time))
 
