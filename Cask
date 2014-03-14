@@ -43,3 +43,4 @@
 (depends-on "starter-kit-eshell")
 (depends-on "starter-kit-lisp")
 (depends-on "yaml-mode")
+(depends-on "yari")
