@@ -37,6 +37,7 @@
 (depends-on "ruby-end")
 (depends-on "ruby-tools")
 (depends-on "scpaste")
+(depends-on "smartparens")
 (depends-on "starter-kit")
 (depends-on "starter-kit-bindings")
 (depends-on "starter-kit-eshell")

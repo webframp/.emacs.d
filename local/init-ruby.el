@@ -3,8 +3,6 @@
 ;;; Code:
 
 (add-hook 'ruby-mode-hook 'whitespace-mode)
-(add-hook 'ruby-mode-hook 'flycheck-mode)
-(add-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
 (add-hook 'ruby-mode-hook 'robe-mode)
@@ -12,9 +10,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile.*" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Cheffile.*" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile.*" . ruby-mode))
-
-;; https://github.com/technomancy/emacs-starter-kit/pull/145
-;;(defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
 
 ;; Chris' ruby indent
 (setq ruby-deep-indent-paren nil)

@@ -45,6 +45,11 @@
 (after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
+(custom-set-faces
+ '(flycheck-warning
+   ((t (:foreground "orange" :underline))))
+ )
+
 ;; easy-pg
 (if (eq system-type 'gnu/linux)
     (setq epg-gpg-program "/usr/bin/gpg")
@@ -94,6 +99,19 @@
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
+
+;; smartparens
+(smartparens-global-mode)
+(show-smartparens-global-mode t)
+
+(custom-set-faces
+ '(sp-pair-overlay-face
+   ((t (:background "yellow" :foreground "black"))))
+ '(sp-wrap-overlay-face
+   ((t (:background "green" :foreground "black"))))
+ '(sp-wrap-tag-overlay-face
+   ((t (:background "magenta" :foreground "black"))))
+ )
 
 ;; don't clutter fs with backups and set some options
 (defvar user-temporary-file-directory
