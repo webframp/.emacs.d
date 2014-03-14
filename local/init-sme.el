@@ -86,8 +86,6 @@
 
 ;; git-gutter
 (global-git-gutter-mode t)
-(set-face-foreground 'git-gutter:added "blue")
-(set-face-foreground 'git-gutter:deleted "yellow")
 (setq git-gutter:lighter " GG")
 
 ;; js2-mode
