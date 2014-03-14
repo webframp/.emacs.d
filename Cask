@@ -13,7 +13,6 @@
 (depends-on "d-mode")
 (depends-on "dash-at-point")
 (depends-on "deft")
-(depends-on "enh-ruby-mode")
 (depends-on "flx-ido")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
