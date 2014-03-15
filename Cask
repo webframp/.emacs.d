@@ -9,6 +9,7 @@
 (depends-on "chruby")
 (depends-on "company")
 (depends-on "company-go")
+(depends-on "company-inf-python")
 (depends-on "company-inf-ruby")
 (depends-on "d-mode")
 (depends-on "dash-at-point")
