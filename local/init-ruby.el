@@ -32,5 +32,22 @@
 (require 'chruby)
 (chruby "ruby-2.1.1")
 
+(require 'bundler)
+
+;;;###autoload
+(defun run-bundled-command (cmd &rest args)
+  "Run bundle exec for the given command, optionally with args"
+  (interactive)
+  (let (command)
+    (setq command
+          (if args
+              (concat "bundle exec " cmd " "(mapconcat 'identity args " "))
+            (concat "bundle exec " cmd)))
+    (bundle-command command)))
+
+(defun bundle-exec (command)
+  (interactive "sBundle Exec: ")
+  (run-bundled-command command))
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
