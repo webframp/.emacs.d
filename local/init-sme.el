@@ -111,6 +111,9 @@
    ((t (:background "magenta" :foreground "black"))))
  )
 
+;; ido history
+(setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last"))
+
 ;; don't clutter fs with backups and set some options
 (defvar user-temporary-file-directory
   (concat temporary-file-directory user-login-name "/"))
