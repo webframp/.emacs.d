@@ -22,3 +22,7 @@ bookmarks
 oauth2.plstore
 elnode
 projectile-bookmarks.eld
+projectile.cache
+.cask*
+.ido.last
+
