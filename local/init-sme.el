@@ -81,6 +81,14 @@
 ;; powerline config
 (powerline-default-theme)
 
+;; powershell mode
+(when *is-windows*
+  (autoload 'powershell-mode "powershell-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.ps.*1$" . powershell-mode)))
+
+;; batch files
+(setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
+
 ;; projectile
 (projectile-global-mode)
 
