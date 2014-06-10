@@ -2,12 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-;; use sRGB colorspace
-(when *is-a-mac*
-  (setq ns-use-srgb-colorspace t))
+;; don't let libraries ever turn this on
+(setq debug-on-error nil)
 
-;; some file associations
-(setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
+;; use sRGB colorspace
+(when *is-osx*
+  (setq ns-use-srgb-colorspace t))
 
 ;; side by side diff mode
 (setq ediff-split-window-function 'split-window-horizontally)

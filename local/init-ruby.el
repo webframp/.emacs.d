@@ -29,8 +29,9 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
-(require 'chruby)
-(chruby "ruby-2.1.1")
+(unless *is-windows*
+  (require 'chruby)
+  (chruby "ruby-2.1.1"))
 
 (require 'bundler)
 

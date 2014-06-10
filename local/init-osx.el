@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(when *is-a-mac*
+(when *is-osx*
   ;; Try and fix a few unknown keybinds in iTerm2
   (define-key input-decode-map "\e[1;2A" [S-up])
   (define-key input-decode-map "\e[1;2B" [S-down])
