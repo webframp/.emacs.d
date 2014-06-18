@@ -30,8 +30,6 @@
 (require 'init-org)
 (require 'init-notmuch)
 
-(require 'chef-mode)
-
 (when *is-osx*
   (require 'init-osx))
 
