@@ -5,6 +5,12 @@
 ;; don't let libraries ever turn this on
 (setq debug-on-error nil)
 
+;; tabs vs spaces
+(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'insert-tab)
+(setq-default tab-width 2)
+(setq powershell-indent 4)
+
 ;; use sRGB colorspace
 (when *is-osx*
   (setq ns-use-srgb-colorspace t))
