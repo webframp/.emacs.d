@@ -6,6 +6,7 @@
 ;;; Code:
 (defconst *is-osx* (eq system-type 'darwin))
 (defconst *is-windows* (eq system-type 'windows-nt))
+(defconst *is-linux* (eq system-type 'gnu/linux))
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)

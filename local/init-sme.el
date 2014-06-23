@@ -21,11 +21,18 @@
 ;; spelling settings
 (after-load 'ispell
   (progn
-    (setq ispell-dictionary "en"
+    (setq ispell-dictionary "english"
           ispell-silently-savep t)))
-(if (eq system-type 'gnu/linux)
-    (setq-default ispell-program-name "/usr/bin/aspell")
+
+(when *is-osx*
   (setq-default ispell-program-name "/usr/local/bin/aspell"))
+
+(when *is-linux*
+  (setq-default ispell-program-name "/usr/bin/aspell"))
+
+(when *is-windows*
+  (add-to-list 'exec-path "C:/tools/Aspell/bin/")
+  (setq-default ispell-program-name "C:/tools/Aspell/bin/aspell.exe"))
 
 (setenv "ASPELL_CONF" nil)
 
