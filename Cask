@@ -58,7 +58,6 @@
 (depends-on "ox-reveal")
 (depends-on "package-build")
 (depends-on "pallet")
-(depends-on "paredit")
 (depends-on "php-mode")
 (depends-on "pkg-info")
 (depends-on "popup")
