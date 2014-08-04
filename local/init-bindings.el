@@ -3,13 +3,6 @@
 ;;; Code:
 
 ;; custom keybindings
-(global-set-key (kbd "M-z") 'undo)
-(global-set-key [f5] 'split-window-horizontally)
-(global-set-key [f6] 'split-window-vertically)
-(global-set-key (kbd "C-c J") 'join-line)
-
-(global-set-key (kbd "C-x c") 'comment-or-uncomment-region)
-
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
