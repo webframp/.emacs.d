@@ -30,6 +30,7 @@
 (require 'init-ruby)
 (require 'init-org)
 (require 'init-notmuch)
+(require 'init-mail)
 
 (when *is-osx*
   (require 'init-osx))

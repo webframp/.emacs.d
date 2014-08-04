@@ -1,21 +1,10 @@
 ;;;; init-notmuch.el --- Custom settings for notmuch and mail handling
 ;;; Commentary:
 
-;; this configures both notmuch and message-mode
+;; notmuch specific configuration
 
 ;;; Code:
-(autoload 'mailto-compose-mail "mailto-compose-mail" nil t)
 
-;; mail sending
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq sendmail-program "/usr/local/bin/msmtp")
-(setq mail-specify-envelope-from 't)
-(setq message-sendmail-envelope-from 'header)
-(setq mail-envelope-from 'header)
-
-(setq message-kill-buffer-on-exit 't)
-(setq mail-host-address "webframp.com")
-(setq message-default-mail-headers "Cc: \nBcc: \n")
 
 ;; mail contacts
 (require 'notmuch-address)
@@ -53,46 +42,6 @@
 (setq notmuch-fcc-dirs '(("sean@hw-ops.com" . "hw/sent")
                          ("sean.escriva@gmail.com" . "gmail/sent")
                          (".*" . "sent")))
-
-;; mail viewing and composing
-;; fix for possible weirdness with notmuch-show-mode and emacs 24.x
-;; still needed?
-(require 'gnus-art)
-
-;; support multiple email accounts
-(require 'gnus-alias)
-(autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
-
-;; Define Identities
-;; Define two identities, "home" and "work"
-(setq gnus-alias-identity-alist
-      '(("personal"
-         nil ;; Does not refer to any other identity
-         "Sean Escriva <sean.escriva@gmail.com>" ;; Sender address
-         nil ;; No organization header
-         nil ;; No extra headers
-         nil ;; No extra body text
-         "~/.signature"
-         )
-        ("hw"
-         nil ;; Not referencing another identity
-         "Sean Escriva <sean@hw-ops.com>"
-         "Heavywater"
-         nil ;; No extra headers
-         nil ;; No extra body text
-         "~/.signature.hw")))
-
-;; Use "personal" identity by default
-(setq gnus-alias-default-identity "personal")
-;; Define rules to match work identity
-(setq gnus-alias-identity-rules
-      '(
-        ("hw"
-         ("any" "<\\(.+\\)\\@hw-ops\\.com" both) "hw")
-        )
-      )
-
-(add-hook 'message-setup-hook 'gnus-alias-determine-identity)
 
 (provide 'init-notmuch)
 ;;; init-notmuch.el ends here
