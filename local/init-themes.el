@@ -1,7 +1,7 @@
 ;;; package --- color theme setup
 ;;; Commentary:
 ;;; Code:
-(load-theme 'base16-tomorrow t)
+(load-theme 'base16-solarized t)
 
 (provide'init-themes)
 
