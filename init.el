@@ -32,8 +32,7 @@
 (require 'init-notmuch)
 (require 'init-mail)
 
-(when *is-osx*
-  (require 'init-osx))
+(when *is-osx* (require 'init-osx))
 
 (message "init completed in %.2fms"
          (sme/time-subtract-millis (current-time) before-init-time))

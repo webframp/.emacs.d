@@ -4,6 +4,7 @@
 
 ;; don't let libraries ever turn this on
 (setq debug-on-error nil)
+(setq-default debug-on-error nil)
 
 ;; tabs vs spaces
 (setq-default indent-tabs-mode nil)
@@ -24,16 +25,10 @@
     (setq ispell-dictionary "english"
           ispell-silently-savep t)))
 
-(when *is-osx*
-  (setq-default ispell-program-name "/usr/local/bin/aspell"))
-
-(when *is-linux*
-  (setq-default ispell-program-name "/usr/bin/aspell"))
-
 (when *is-windows*
-  (add-to-list 'exec-path "C:/tools/Aspell/bin/")
-  (setq-default ispell-program-name "C:/tools/Aspell/bin/aspell.exe"))
+  (add-to-list 'exec-path "C:/src/tools/Aspell/bin/"))
 
+(setq-default ispell-program-name (executable-find "aspell"))
 (setenv "ASPELL_CONF" nil)
 
 (defalias 'qrr 'query-replace-regexp)
@@ -60,13 +55,15 @@
 
 (custom-set-faces
  '(flycheck-warning
-   ((t (:foreground "orange" :underline))))
- )
+   ((t (:foreground "orange" :underline)))))
+
+;; fix ag mode for windows
+(after-load 'ag
+  (when *is-windows*
+    (setq-default ag-arguments (cons "--line-numbers" ag-arguments))))
 
 ;; easy-pg
-(if (eq system-type 'gnu/linux)
-    (setq epg-gpg-program "/usr/bin/gpg")
-  (setq epg-gpg-program "/usr/local/bin/gpg"))
+(setq epg-gpg-program (executable-find "gpg"))
 
 ;; ghc-mod
 (autoload 'ghc-init "ghc" nil t)
@@ -100,7 +97,7 @@
   (add-to-list 'auto-mode-alist '("\\.ps.*1$" . powershell-mode)))
 
 ;; batch files
-(setq auto-mode-alist (cons '("\\.bat$" . ntcmd-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.bat$" . ntcmd-mode))
 
 ;; projectile
 (projectile-global-mode)
