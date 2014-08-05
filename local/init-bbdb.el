@@ -1,6 +1,6 @@
 ;;; bbdb
 (require 'bbdb)
-(require 'bbdb-autoloads)
+;;(require 'bbdb-autoloads)
 (bbdb-initialize 'gnus 'message) ;;'reportmail)
 (load "bbdb-com" t)
 (bbdb-insinuate-message)
