@@ -4,7 +4,8 @@
 ;; notmuch specific configuration
 
 ;;; Code:
-
+;; load general mail settings
+(require 'init-mail)
 
 ;; mail contacts
 (require 'notmuch-address)
@@ -38,7 +39,7 @@
 
 (setq notmuch-archive-tags '("-unread" "+archive"))
 
-(setq message-directory "~/.mail")
+
 (setq notmuch-fcc-dirs '(("sean@hw-ops.com" . "hw/sent")
                          ("sean.escriva@gmail.com" . "gmail/sent")
                          (".*" . "sent")))
