@@ -8,6 +8,7 @@
 (depends-on "alert")
 (depends-on "auto-complete")
 (depends-on "base16-theme")
+(depends-on "bbdb")
 (depends-on "bundler")
 (depends-on "calfw")
 (depends-on "cask")
