@@ -29,10 +29,11 @@
 (require 'init-company)
 (require 'init-ruby)
 (require 'init-org)
-(require 'init-notmuch)
-(require 'init-mail)
-
-(when *is-osx* (require 'init-osx))
+(when *is-windows* (require 'init-gnus))
+(when *is-osx*
+  (require 'init-osx)
+  (require 'init-notmuch)
+  )
 
 (message "init completed in %.2fms"
          (sme/time-subtract-millis (current-time) before-init-time))
