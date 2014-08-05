@@ -24,8 +24,16 @@
 
 (require 'ox-reveal)
 
+;; org-contacts
+(require 'org-contacts)
+(setq
+ org-contacts-files (list "~/org/contacts.org")
+ org-contacts-birthday-property "ANNIVERSARY"
+ org-contacts-birthday-format "Anniversary: %l (%Y)")
+
 ;;; org-babel
-(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
+(when *is-osx*
+  (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar"))
 
 (org-babel-do-load-languages
  (quote org-babel-load-languages)
@@ -56,8 +64,8 @@
                              ("\\.png\\'" . default)
                              ) org-file-apps ))))
 
+
 ;;;; org-capture
-;; FIX a lot of boilerplate here
 (setq org-capture-templates
       `(
         ("a" "Log Activity" entry (file+datetree (concat org-directory "timelog.org")) "** %U - %^{Activity} :TIME:")
@@ -68,55 +76,37 @@
  %?")
         ("s" "Shopping List" checkitem (file+headline org-default-notes-file "Shopping List"))
 
-
         ;; Templates with a prefix key
         ("t" "Template for Theocratic items") ;; one
         ("ta" "Meeting Assignments" entry (file+headline (concat org-directory "theocratic.org") "Assignments")
          "* %^{Meeting Part} %^t")
-        ("tr" "RBC SDP" entry (file+headline (concat org-directory "theocratic.org") "RBCSDP")
-         "* %^{Description} %^g
- %?
-Added: %U")
         ("tb" "Bethel" entry (file+headline (concat org-directory "theocratic.org") "Bethel")
          "* %^{Description}  %^g
  %?
 Added: %U")
-        ("tq" "Quick Draw" entry (file+headline (concat org-directory "theocratic.org") "Quick Draw")
-         "* %^{Description}  %^g
- %?
-Added: %U")
-        ("tw" "Woodburn" entry (file+headline (concat org-directory "theocratic.org") "Woodburn")
-         "* %^{Description}  %^g
- %?
-Added: %U")
+        ("c" "Add Contact" entry (file "~/org/contacts.org")
+         "* %(org-contacts-template-name)
+  :PROPERTIES:
+  :EMAIL: %(org-contacts-template-email)
+  :PHONE:
+  :ALIAS:
+  :NICKNAME:
+  :IGNORE:
+  :ICON:
+  :NOTE:
+  :ADDRESS:
+  :ANNIVERSARY:
+  :END:")))
 
-        ("w" "Templates for work or client related items") ;; two
-        ("wa" "Analog Analtics" entry (file+headline (concat org-directory "work.org") "Analog") "* %^{Description} %^g
- %?
- Added: %U")
-        ("wb" "AboutUs" entry (file+headline (concat org-directory "work.org") "AboutUs") "* %^{Description} %^g
- %?
- Added: %U")
-        ("wg" "General work items" entry (file+headline (concat org-directory "work.org") "General") "* %^{Description} %^g
- %?
- Added: %U")
-        ("wp" "Product" entry (file+headline (concat org-directory "work.org") "Product") "* %^{Description} %^g
- %?
- Added: %U")
-        ("ws" "SweetSpot" entry (file+headline (concat org-directory "work.org") "Sweetspot") "* %^{Description} %^g
- %?
- Added: %U")
-
-        ("c" "Coffee related") ;; three
-        ("ca" "Aeropress" entry (file+headline (concat org-directory "coffee.org") "Aeropress") "** %^{Heading}
-  - grinder: %^{grinder setting}
-  - water: %^{water amount}
-  - coffee: %^{coffee amout}
-  - steep: %^{steep time}
-  - press: %^{press time}")
-        ("cc" "Chemex" entry (file+headline (concat org-directory "coffee.org") "Chemex"))
-        ("cf" "French Press" entry (file+headline (concat org-directory "coffee.org") "French Press"))
-        ))
+;;       ("c" "Coffee related") ;; three
+;;       ("ca" "Aeropress" entry (file+headline (concat org-directory "coffee.org") "Aeropress") "** %^{Heading}
+;; - grinder: %^{grinder setting}
+;; - water: %^{water amount}
+;; - coffee: %^{coffee amout}
+;; - steep: %^{steep time}
+;; - press: %^{press time}")
+;;       ("cc" "Chemex" entry (file+headline (concat org-directory "coffee.org") "Chemex"))
+;;       ("cf" "French Press" entry (file+headline (concat org-directory "coffee.org") "French Press"))
 
 (provide 'init-org)
 ;;; init-org.el ends here

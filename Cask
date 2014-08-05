@@ -58,6 +58,7 @@
 (depends-on "omnisharp")
 (depends-on "org")
 (depends-on "org-caldav")
+(depends-on "org-plus-contrib")
 (depends-on "ox-reveal")
 (depends-on "package-build")
 (depends-on "pallet")
