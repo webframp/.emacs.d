@@ -51,8 +51,6 @@
 
 (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
 
-(setq gnus-summary-line-format "%U%R%z%I%(%[%4L: %-20,20n%]%) (%c) %s\n")
-
 ;; http://groups.google.com/group/gnu.emacs.gnus/browse_thread/thread/a673a74356e7141f
 ;;; threading display
 (defun gnus-user-format-function-@ (header)
