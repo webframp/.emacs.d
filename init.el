@@ -1,4 +1,4 @@
-; -*- coding: utf-8;  no-byte-compile: t -*-
+;; -*- coding: utf-8;  no-byte-compile: t -*-
 ;;; init.el --- Sean Escriva - emacs init customizations
 ;;; Commentary:
 ;;   Config using Cask and Pallet for package management
