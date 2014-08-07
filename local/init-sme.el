@@ -111,6 +111,8 @@
 
 ;; json-mode
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.arclint$" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.arcconfig$" . json-mode))
 
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
