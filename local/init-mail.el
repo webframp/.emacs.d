@@ -20,5 +20,7 @@
 (setq mail-host-address "webframp.com")
 (setq message-default-mail-headers "Cc: \nBcc: \n")
 
+(add-hook 'message-mode-hook 'flyspell-mode)
+
 (provide 'init-mail)
 ;;; init-mail.el ends here
