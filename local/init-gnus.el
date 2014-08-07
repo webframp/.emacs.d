@@ -14,7 +14,7 @@
 ;; support multiple email accounts
 (require 'gnus-alias)
 (autoload 'gnus-alias-determine-identity "gnus-alias" "" t)
-
+(setq gnus-inhibit-startup-message t)
 ;; Define Identities
 ;; Define three identities, "home", "work", "jw"
 (setq gnus-alias-identity-alist
@@ -69,6 +69,8 @@ You need to add `Content-Type' to `nnmail-extra-headers' and
       " ")))
 
 (defalias 'gnus-user-format-function-score 'rs-gnus-summary-line-score)
+(setq gnus-face-9 'font-lock-warning-face)
+(setq gnus-face-10 'shadow)
 
 (defun rs-gnus-summary-line-score (head)
   "Return pretty-printed version of article score.
@@ -85,8 +87,6 @@ See (info \"(gnus)Group Line Specification\")."
           ((< c  1000)     " ^")
           (t               "^^"))))
 
-(setq gnus-face-9 'font-lock-warning-face)
-(setq gnus-face-10 'shadow)
 (defun sdl-gnus-summary-line-format-ascii nil
   (interactive)
   (setq gnus-summary-line-format
