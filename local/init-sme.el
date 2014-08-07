@@ -154,5 +154,9 @@
           '(lambda ()
              (define-key dired-mode-map "o" 'open-with)))
 
+;; try to keep init.el clean
+(setq custom-file (concat user-emacs-directory ".custom.el"))
+(load custom-file)
+
 (provide 'init-sme)
 ;;; init-sme.el ends here

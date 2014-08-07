@@ -25,4 +25,5 @@ projectile-bookmarks.eld
 projectile.cache
 .cask*
 .ido.last
+.custom.el
 
