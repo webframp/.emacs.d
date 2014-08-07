@@ -150,11 +150,5 @@ Format"
 ;; decide which layout to use
 (sdl-gnus-summary-line-format-unicode)
 
-;; no idea how to test this, but need to
-(require 'gnus-desktop-notify)
-(gnus-desktop-notify-mode)
-(gnus-demon-add-handler 'gnus-demon-scan-mail 2 nil)
-
-
 (provide 'init-gnus)
 ;;; init-gnus.el ends here
