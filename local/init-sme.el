@@ -121,6 +121,8 @@
 ;; smartparens
 (smartparens-global-mode)
 (show-smartparens-global-mode t)
+(require 'smartparens-config)
+(sp-local-pair '(message-mode org-mode git-commit-mode) "`" "'")
 
 (custom-set-faces
  '(sp-pair-overlay-face
