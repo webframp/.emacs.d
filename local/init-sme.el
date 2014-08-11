@@ -146,9 +146,13 @@
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 
+;; dired
 (add-hook 'dired-mode-hook
           '(lambda ()
              (define-key dired-mode-map "o" 'open-with)))
+
+(require 'dired-efap)
+(define-key dired-mode-map [f2] 'dired-efap)
 
 ;; try to keep init.el clean
 (setq custom-file (concat user-emacs-directory ".custom.el"))

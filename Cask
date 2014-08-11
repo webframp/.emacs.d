@@ -22,6 +22,7 @@
 (depends-on "dash")
 (depends-on "dash-at-point")
 (depends-on "deft")
+(depends-on "dired-efap")
 (depends-on "editorconfig")
 (depends-on "elisp-slime-nav")
 (depends-on "epl")
