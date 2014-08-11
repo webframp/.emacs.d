@@ -152,7 +152,9 @@
 
 ;; try to keep init.el clean
 (setq custom-file (concat user-emacs-directory ".custom.el"))
-(load custom-file)
+(when (not (file-exists-p custom-file))
+  (write-file custom-file))
+ (load custom-file)
 
 (provide 'init-sme)
 ;;; init-sme.el ends here
