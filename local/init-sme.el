@@ -12,10 +12,6 @@
 (setq-default tab-width 2)
 (setq powershell-indent 4)
 
-;; use sRGB colorspace
-(when *is-osx*
-  (setq ns-use-srgb-colorspace t))
-
 ;; side by side diff mode
 (setq ediff-split-window-function 'split-window-horizontally)
 
