@@ -8,6 +8,7 @@
 (defconst *is-windows* (eq system-type 'windows-nt))
 (defconst *is-linux* (eq system-type 'gnu/linux))
 
+(require 'cl)
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -22,7 +23,7 @@
 (require 'init-benchmarking)
 
 ;; more portable init, instead of username dir based starter-kit
-(require 'user-functions)
+(require 'user-defuns)
 (require 'init-themes)
 (require 'init-sme)
 (require 'init-bindings)
