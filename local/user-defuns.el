@@ -1,7 +1,63 @@
-;;;; user-functions.el --- stuff that can't go anywhere else
+;;;; user-defuns.el --- stuff that can't go anywhere else
 ;;; Commentary:
+;; Various bit I like from other places
 
 ;;; Code:
+
+;; esk-* from:
+;; https://github.com/technomancy/emacs-starter-kit/blob/v2/starter-kit-defuns.el
+;; A lot of starter-kit v2 is very nice. I really hate the paredit
+;; dependency of the whole esk v2, so just using most of what I like.
+
+(defun esk-local-column-number-mode ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t))
+
+(defun esk-local-comment-auto-fill ()
+  (set (make-local-variable 'comment-auto-fill-only-comments) t)
+  (auto-fill-mode t))
+
+(defun esk-turn-on-save-place-mode ()
+  (require 'saveplace)
+  (setq save-place t))
+
+(defun esk-pretty-lambdas ()
+  (font-lock-add-keywords
+   nil `(("(?\\(lambda\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                    ,(make-char 'greek-iso8859-7 107))
+                    nil))))))
+
+(defun esk-add-watchwords ()
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+          1 font-lock-warning-face t))))
+
+;; (add-hook 'prog-mode-hook 'esk-local-column-number-mode)
+;; (add-hook 'prog-mode-hook 'esk-local-comment-auto-fill)
+;; (add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
+;; (add-hook 'prog-mode-hook 'esk-pretty-lambdas)
+;; (add-hook 'prog-mode-hook 'esk-add-watchwords)
+
+;; (defun esk-prog-mode-hook ()
+;;   (run-hooks 'prog-mode-hook))
+
+(defun esk-untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun esk-indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun esk-cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (esk-indent-buffer)
+  (esk-untabify-buffer)
+  (delete-trailing-whitespace))
+
+;; basic, dumb window movement
 (defun rotate-windows ()
   "Rotate your windows" (interactive)
   (cond ((not (> (count-windows) 1)) (message "You can't rotate a single window!"))
@@ -38,7 +94,7 @@
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 
-(setq screen-vertical-padding 0)
+
 
 (defun screen-size-as-string ()
   (let ((width (frame-pixel-width))
@@ -94,12 +150,12 @@ file of a buffer in an external program."
 
 ;; WIP
 (defun sme/company-complete-or-select ()
-     (if 'company-candidates
-         (company-select-next))
-     (company-complete-selection))
+  (if 'company-candidates
+      (company-select-next))
+  (company-complete-selection))
 
 ;; split out cause it's huge
 (require 'mailto-compose-mail)
 
-(provide 'user-functions)
+(provide 'user-defuns)
 ;;; user-functions.el ends here
