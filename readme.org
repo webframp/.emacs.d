@@ -1,0 +1,21 @@
+* Just Another Emacs Config
+
+Basically just my cobbled together multi machine config. Used
+regularly on Mac, Linux and Windows. Began life with some old version
+of the [[https://github.com/technomancy/emacs-starter-kit][emacs starter kit]]. Doesn't use that now although I did steal a
+few things I had come to expect were always there.
+
+Requires [[https://github.com/cask/cask][Cask]]
+
+There's probably useless vestigial edges, beware.
+
+I typically use emacsclient and use these functions:
+
+#+BEGIN_SRC sh
+e()  { emacs -nw $@ }
+ed() { emacs --daemon }
+ec() { emacsclient -t $@ }
+es() { e --daemon=$1 && ec -s $1 }
+el() { ps ax | egrep '[Ee]macs' }
+ek() { ec -e '(kill-emacs)' -s $1 }
+#+END_SRC
