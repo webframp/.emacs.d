@@ -30,10 +30,26 @@
 (defalias 'qrr 'query-replace-regexp)
 
 ;; remove a few uneeded decorations
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+
+(setq visible-bell t
+      screen-vertical-padding 0
+      inhibit-startup-message t
+      color-theme-is-global t
+      sentence-end-double-space nil
+      shift-select-mode nil
+      mouse-yank-at-point t
+      uniquify-buffer-name-style 'forward
+      whitespace-style '(face trailing lines-tail tabs)
+      whitespace-line-column 80
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      oddmuse-directory (concat user-emacs-directory "oddmuse")
+      save-place-file (concat user-emacs-directory "places")
+      backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
+      diff-switches "-u")
+
+;; smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
 
 ;; ido settings: vertical, fuzzy and show matching
 (ido-mode t)
@@ -61,15 +77,31 @@
 ;; easy-pg
 (setq epg-gpg-program (executable-find "gpg"))
 
-;; ghc-mod
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init) )) ;; REMOVE FLYMAKE?
+;;; haskell setup
+;; cabal path
+;; make sure cabal/bin is in path
+(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+(add-to-list 'exec-path "~/.cabal/bin")
+
+;; haskell indent
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-;; go-mode
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+;; hasktags
+(setq haskell-tags-on-save 't)
+(add-hook 'haskell-mode-hook
+          (lambda () (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
+
+;; inf-haskell
+(setq haskell-process-suggest-remove-import-lines t
+      haskell-process-auto-import-loaded-modules t
+      haskell-process-log t
+      haskell-process-type 'cabal-repl)
+
+;; ghc-mod
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(setq company-ghc-show-info t)
 
 ;; dash-at-point
 (autoload 'dash-at-point "dash-at-point"
@@ -132,20 +164,6 @@
 ;; ido history
 (setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last"))
 
-;; don't clutter fs with backups and set some options
-(defvar user-temporary-file-directory
-  (concat temporary-file-directory user-login-name "/"))
-(make-directory user-temporary-file-directory t)
-(setq backup-by-copying t)
-(setq backup-directory-alist
-      `(("." . ,user-temporary-file-directory)
-        (,tramp-file-name-regexp nil)))
-
-(setq auto-save-list-file-prefix
-      (concat user-temporary-file-directory ".yauto-saves-"))
-(setq auto-save-file-name-transforms
-      `((".*" ,user-temporary-file-directory t)))
-
 ;; dired
 (add-hook 'dired-mode-hook
           '(lambda ()
@@ -154,11 +172,15 @@
 (require 'dired-efap)
 (define-key dired-mode-map [f2] 'dired-efap)
 
+;; python
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'eldoc-mode)
+
 ;; try to keep init.el clean
 (setq custom-file (concat user-emacs-directory ".custom.el"))
 (when (not (file-exists-p custom-file))
   (write-file custom-file))
- (load custom-file)
+(load custom-file)
 
 (provide 'init-sme)
 ;;; init-sme.el ends here
