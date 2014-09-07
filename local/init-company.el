@@ -29,10 +29,11 @@
     (t (:inherit company-tooltip-selection)))))
 
 (after-load 'company
-  '(add-to-list 'company-backends 'company-robe)
   '(add-to-list 'company-backends 'company-inf-ruby)
   '(add-to-list 'company-backends 'company-dabbrev)
   '(add-to-list 'company-backends 'company-ispell)
+  '(add-to-list 'company-backends 'company-ghc)
+  '(add-to-list 'company-backends 'company-go)
   '(add-to-list 'company-backends 'company-files))
 
 (provide 'init-company)
