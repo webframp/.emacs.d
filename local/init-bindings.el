@@ -15,8 +15,28 @@
 ;; old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; cleanup
+;; basically esk
+(global-set-key (kbd "C-M-h") 'backward-kill-word)
 (global-set-key (kbd "C-c n") 'esk-cleanup-buffer)
+
+;; search
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "M-%") 'query-replace-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "C-M-%") 'query-replace)
+
+;; Should be able to eval-and-replace anywhere.
+(global-set-key (kbd "C-c e") 'esk-eval-and-replace)
+
+;; Window switching. (C-x o goes to the next window)
+(windmove-default-keybindings) ;; Shift+direction
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
+(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
+
+;; So good!
+(global-set-key (kbd "C-c g") 'magit-status)
 
 ;; org-mode bindings
 (define-key global-map "\C-cl" 'org-store-link)

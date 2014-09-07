@@ -10,18 +10,22 @@
 ;; dependency of the whole esk v2, so just using most of what I like.
 
 (defun esk-local-column-number-mode ()
+  "Enables column number mode"
   (make-local-variable 'column-number-mode)
   (column-number-mode t))
 
 (defun esk-local-comment-auto-fill ()
+  "Enables automatic line breaking with auto-fill"
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode t))
 
 (defun esk-turn-on-save-place-mode ()
+  "Enables save place"
   (require 'saveplace)
   (setq save-place t))
 
 (defun esk-pretty-lambdas ()
+  "Enables Fancy lambda symbols"
   (font-lock-add-keywords
    nil `(("(?\\(lambda\\>\\)"
           (0 (progn (compose-region (match-beginning 1) (match-end 1)
@@ -29,6 +33,7 @@
                     nil))))))
 
 (defun esk-add-watchwords ()
+  "Enables keyword highlight for specific words"
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
           1 font-lock-warning-face t))))
