@@ -59,6 +59,7 @@
 (depends-on "lice")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "nginx-mode")
 (depends-on "notmuch")
 (depends-on "omnisharp")
 (depends-on "org")
