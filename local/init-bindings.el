@@ -27,8 +27,14 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "C-M-%") 'query-replace)
 
+ ;; File finding
+(global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
+(global-set-key (kbd "C-c y") 'bury-buffer)
+(global-set-key (kbd "C-c r") 'revert-buffer)
+
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c e") 'esk-eval-and-replace)
+(global-set-key (kbd "C-c v") 'eval-buffer)
 
 ;; Window switching. (C-x o goes to the next window)
 (windmove-default-keybindings) ;; Shift+direction
@@ -62,8 +68,8 @@
 (global-set-key (kbd "C-c ;") 'ruby-tools-clear-string)
 
 ;; gitgutter
-(global-set-key (kbd "C-c v s") 'git-gutter:stage-hunk)
-(global-set-key (kbd "C-c v r") 'git-gutter:revert-hunk)
+(global-set-key (kbd "C-c s s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-c s r") 'git-gutter:revert-hunk)
 
 ;; magit
 (global-set-key (kbd "C-c l") 'magit-log)
