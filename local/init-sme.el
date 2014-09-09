@@ -176,6 +176,12 @@
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'auto-tail-revert-mode 'tail-mode)
+
+;; Seed the random-number generator
+(random t)
+
 ;; try to keep init.el clean
 (setq custom-file (concat user-emacs-directory ".custom.el"))
 (when (not (file-exists-p custom-file))
